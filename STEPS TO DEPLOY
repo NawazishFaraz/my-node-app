@@ -1,0 +1,51 @@
+# Node Hello World
+
+Simple node.js app that servers "hello world"
+
+Great for testing simple deployments to the cloud.
+
+## Run It
+
+`npm start`
+
+To dockerize and deploy a Node.js "Hello World" application on Kubernetes 
+(k8s) using Helm I have followed the following steps : 
+
+(1).Dockerize the Node.js application: 
+1.Pushes the code from given Github Repository. 
+2.Created a Dockerfile in the root directory of my Node.js application. 
+3.Use a base Node.js image from Docker Hub. 
+4.Copy the application code into the Docker image. 
+Install dependencies using a package manager like npm or yarn. 
+Expose the necessary port (eg.3000) that your Node.js application listens 
+on.
+5.Push the Docker image to a container registry services like Docker Hub, 
+Amazon ECR. (I have pushed it to Docker Hub). 
+
+(2).Set up Kubernetes (k8s) cluster: 
+Set up a Kubernetes cluster using the preferred method (eg.(Minikube for 
+local development), managed Kubernetes services like AWS EKS.( I have used AWS EKS ). 
+                                                            
+(3).Created a Kubernetes deployment: 
+1.Create a YAML file (deployment.yaml) to define my Kubernetes 
+deployment. 
+2.Specify the metadata, including the name and labels. 
+3.Set the number of desired replicas. 
+4.Expose the necessary container port. 
+ 
+(4).Deploy the application on Kubernetes: 
+1.Verify the deployment: "kubectl get deployments" 
+Check the pod status: "kubectl get pods" 
+Ensure the pods are running:"kubectl describe pods" 
+                                                            
+(5).Expose the application using a Kubernetes service: 
+1.Created a YAML file (service.yaml) to define a Kubernetes service. 
+2.Defined the port mappings. 
+3.Apply the service YAML: "kubectl apply -f service.yaml" 
+4.Get the service details: "kubectl get services". 
+                                                            
+(6).Access the deployed application: 
+1.If using a LoadBalancer service, access the application using the 
+external IP assigned to the service.
+
+
